@@ -17,7 +17,15 @@ class Api::V1::NotesController < ApplicationController
     pet.notes.new(note_params)
     pet.save
 
-    render json: pet
+    render json: pet.notes.last
+  end
+
+  def destroy
+    note = Note.find_by(id: params[:id])
+    noteID = note.id
+    note.destroy
+
+    render json: noteID
   end
 
   private
