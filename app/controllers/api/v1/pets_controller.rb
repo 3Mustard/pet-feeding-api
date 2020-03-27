@@ -20,7 +20,10 @@ class Api::V1::PetsController < ApplicationController
 
   def destroy
     pet = Pet.find_by(id: params[:id])
+    petID = pet.id
     pet.destroy
+
+    render json: petID
   end
 
   private
