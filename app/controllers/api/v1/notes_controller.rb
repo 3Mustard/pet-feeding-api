@@ -2,7 +2,7 @@ class Api::V1::NotesController < ApplicationController
 
   def index
     pet = Pet.find_by(id: params[:pet_id])
-    notes = pet.notes
+    notes = pet.notes.order(:created_at)
     render json: notes
   end
 
