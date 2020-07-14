@@ -1,6 +1,6 @@
 class Api::V1::PetsController < ApplicationController
   def index
-    render json: Pet.order(:created_at)
+    render json: Pet.order(created_at: :desc)
   end
 
   def create
