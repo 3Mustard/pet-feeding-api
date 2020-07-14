@@ -3,18 +3,6 @@ class Api::V1::PetsController < ApplicationController
     render json: Pet.order(:created_at)
   end
 
-  def alertsIndex
-    pets = Pet.all 
-    time = Time.new 
-    alerts = []
-
-    pets.each do |pet| 
-      next_feeding = pet.next_feeding
-      
-    end 
-
-  end 
-
   def create
     newPet = Pet.new(pet_params)
     newPet.save
